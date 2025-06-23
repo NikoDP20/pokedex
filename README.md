@@ -45,6 +45,7 @@ Make sure you have **Node.js** and **npm** installed. Then run:
 ```bash
 npm install
 ```
+### 3️⃣ Start the Development Server
 
 Run the app locally on your machine:
 
