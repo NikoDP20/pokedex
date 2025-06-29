@@ -1,4 +1,4 @@
-# 📘 Pokedex App
+# Pokedex App
 
 A modern, interactive Pokédex built with **React**. Browse, search, and explore detailed information about every Pokémon using a clean, responsive interface powered by the [PokéAPI](https://pokeapi.co/).
 
@@ -6,17 +6,17 @@ A modern, interactive Pokédex built with **React**. Browse, search, and explore
 
 ## ✨ Features
 
-- **🔍 Search by Name:** Instantly find any Pokémon by typing its name.
-- **📚 Browse All Pokémon:** Seamlessly scroll or paginate through the entire Pokédex.
-- **📄 Detailed Pokémon Pages:** View comprehensive details including:
-  - 🖼️ Official artwork
-  - 🔢 Base stats (with visual breakdown)
-  - 🧬 Type(s) with color-coded badges
-  - ⚖️ Weight & Height
-  - 🥚 Breeding and training info
-- **⏩ Pagination:** Effortlessly navigate between pages of Pokémon.
-- **📱 Responsive Design:** Optimized for desktop and mobile devices.
-- **🧩 Modular Components:** Clean, maintainable codebase with reusable components.
+- Search by Name: Instantly find any Pokémon by typing its name.(Coming Soon!)
+- Browse All Pokémon: Seamlessly scroll & paginate through the entire Pokédex.
+- Detailed Pokémon Pages: View comprehensive details including:
+  - Official Images
+  - Base stats
+  - Type(s) with color-coded badges
+  - Weight & Height
+  - Breeding and training info
+- Pagination: Effortlessly navigate between pages of Pokémon.
+- Responsive Design: Optimized for desktop.
+- Modular Components: Clean, maintainable codebase with reusable components.
 
 ---
 
@@ -35,14 +35,14 @@ A modern, interactive Pokédex built with **React**. Browse, search, and explore
 
 Follow these steps to set up and run the project locally:
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/NikoDP20/pokedex.git
 cd pokedex
 ```
 
-### 2️⃣ Install Dependencies
+### 2. Install Dependencies
 
 Ensure you have **Node.js** and **npm** installed. Then run:
 
@@ -50,7 +50,7 @@ Ensure you have **Node.js** and **npm** installed. Then run:
 npm install
 ```
 
-### 3️⃣ Start the Development Server
+### 3. Start the Development Server
 
 ```bash
 npm start
@@ -65,15 +65,21 @@ The app will open automatically at [http://localhost:3000](http://localhost:3000
 ```
 pokedex/
 ├── public/
+│   └── img/
+│       └── pokeball.png
 ├── src/
 │   ├── components/
-│   │   ├── PokemonList.js
-│   │   ├── PokemonDetail.js
-│   │   ├── PokeType.js
-│   │   └── Pagination.js
+│   │   ├── common/
+│   │   │   ├── Header.js
+│   │   │   ├── Loading.js
+│   │   │   ├── Pagination.js
+│   │   │   └── RevealAnimation.js
+│   │   └── pokemon/
+│   │       ├── PokemonDetail.js
+│   │       ├── PokemonList.js
+│   │       └── PokeType.js
 │   ├── App.js
 │   ├── index.js
-│   └── ...
 ├── package.json
 └── README.md
 ```
