@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function PokemonList({ pokemon }) {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -31,6 +33,7 @@ export default function PokemonList({ pokemon }) {
             position: "relative",
             padding: "16px 0 12px 0",
           }}
+          onClick={() => navigate(`/pokemon/${p.id}`)}
           onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#d74a3a")}
           onMouseLeave={(e) =>
             (e.currentTarget.style.borderColor = "transparent")

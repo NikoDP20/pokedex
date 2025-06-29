@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
 import Pagination from "./Pagination";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PokemonDetail from "./PokemonDetail";
+import Header from "./Header";
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -91,74 +94,58 @@ function App() {
   }
 
   return (
-    <div
-      style={{
-        background: "#2f323f",
-        minHeight: "100vh",
-        width: "100vw",
-        boxSizing: "border-box",
-        padding: 0,
-        margin: 0,
-        position: "fixed",
-        top: 0,
-        left: 0,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Router>
       <div
         style={{
-          padding: "10px",
-          paddingBottom: 0,
+          background: "#2f323f",
+          minHeight: "100vh",
+          width: "100vw",
+          boxSizing: "border-box",
+          padding: 0,
+          margin: 0,
+          position: "fixed",
+          top: 0,
+          left: 0,
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
         }}
       >
-        <div
-          style={{
-            background:
-              "linear-gradient(65deg, #d74a3a 0%, #7a1d1d 50%, #7a1d1d 100%)",
-            height: "60px",
-            width: "1100px",
-            maxWidth: "90vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: "2em",
-            fontWeight: "bold",
-            borderRadius: "20px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            fontFamily: "'Press Start 2P', cursive",
-          }}
-        >
-          Pokédex
-        </div>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <PokemonList pokemon={pokemon} />
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "20px 0",
+                  }}
+                >
+                  <Pagination
+                    goToNextPage={nextPage ? handleNextPage : null}
+                    goToPrevPage={prevPage ? handlePrevPage : null}
+                  />
+                </div>
+              </>
+            }
+          />
+          <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        </Routes>
       </div>
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <PokemonList pokemon={pokemon} />
-      </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          padding: "20px 0",
-        }}
-      >
-        <Pagination
-          goToNextPage={nextPage ? handleNextPage : null}
-          goToPrevPage={prevPage ? handlePrevPage : null}
-        />
-      </div>
-    </div>
+    </Router>
   );
 }
 
