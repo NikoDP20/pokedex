@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PokemonList from "./PokemonList";
+import PokemonList from "./components/pokemon/PokemonList";
 import axios from "axios";
-import Pagination from "./Pagination";
+import Pagination from "./components/common/Pagination";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PokemonDetail from "./PokemonDetail";
-import Header from "./Header";
+import PokemonDetail from "./components/pokemon/PokemonDetail";
+import Header from "./components/common/Header";
+import Loading from "./components/common/Loading";
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -64,33 +65,7 @@ function App() {
   }
 
   if (loading) {
-    return (
-      <div
-        style={{
-          background: "#2f323f",
-          minHeight: "100vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "fixed",
-          top: 0,
-          left: 0,
-        }}
-      >
-        <span
-          style={{
-            color: "#d74a3a",
-            fontSize: "5rem",
-            fontFamily: "'Press Start 2P', cursive",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          Loading...
-        </span>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

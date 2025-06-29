@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import RevealAnimation from "./RevealAnimation";
+import RevealAnimation from "../common/RevealAnimation";
 import PokeType from "./PokeType";
+import Loading from "../common/Loading";
 
 export default function PokemonDetail() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ export default function PokemonDetail() {
   }, [id]);
 
   if (!pokemon || !species)
-    return <div style={{ color: "#fff" }}>Loading...</div>;
+    return <Loading />;
 
   // Helper for gender rate
   const getGenderChances = (rate) => {
